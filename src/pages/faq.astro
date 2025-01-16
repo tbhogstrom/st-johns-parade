@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+
+const faqs = [
+  {
+    question: 'When is the parade?',
+    answer: 'The parade is held annually on the first Saturday of July.'
+  },
+  {
+    question: 'What time does the parade start?',
+    answer: 'The parade begins promptly at 10:00 AM.'
+  },
+  {
+    question: 'Where does the parade route begin?',
+    answer: 'The parade begins at Main Street and First Avenue.'
+  },
+  {
+    question: 'How can I participate in the parade?',
+    answer: 'You can register as a participant through our online registration form in the Forms section.'
+  },
+  {
+    question: 'Is there a fee to watch the parade?',
+    answer: 'No, the parade is free for all spectators.'
+  },
+  {
+    question: 'Where can I park?',
+    answer: 'Public parking is available at designated lots around the parade route.'
+  }
+];
+---
+
+<Layout title="Parade Day FAQ">
+  <Navigation />
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl font-bold text-primary mb-8">Frequently Asked Questions</h1>
+    <div class="space-y-6">
+      {faqs.map(faq => (
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h2 class="text-xl font-semibold text-secondary mb-2">{faq.question}</h2>
+          <p class="text-gray-600">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </main>
+</Layout>

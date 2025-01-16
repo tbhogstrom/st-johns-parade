@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import { DynamicForm } from '../../components/forms/DynamicForm';
+
+const participantFields = [
+  {
+    name: 'organizationName',
+    label: 'Organization Name',
+    type: 'text',
+    required: true,
+    placeholder: 'Enter your organization name'
+  },
+  {
+    name: 'contactName',
+    label: 'Contact Person',
+    type: 'text',
+    required: true,
+    placeholder: 'Full name of primary contact'
+  },
+  {
+    name: 'email',
+    label: 'Email Address',
+    type: 'email',
+    required: true,
+    placeholder: 'your.email@example.com'
+  },
+  {
+    name: 'phone',
+    label: 'Phone Number',
+    type: 'tel',
+    required: true,
+    placeholder: '(555) 555-5555'
+  },
+  {
+    name: 'participationType',
+    label: 'Type of Participation',
+    type: 'text',
+    required: true,
+    placeholder: 'Float, marching unit, vehicle, etc.'
+  },
+  {
+    name: 'participantCount',
+    label: 'Number of Participants',
+    type: 'text',
+    required: true,
+    placeholder: 'Estimated number of participants'
+  },
+  {
+    name: 'description',
+    label: 'Entry Description',
+    type: 'textarea',
+    required: true,
+    placeholder: 'Please describe your parade entry in detail'
+  }
+];
+---
+
+<Layout title="Parade Participant Registration">
+  <Navigation />
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl font-bold text-primary mb-8">Parade Participant Registration</h1>
+    <DynamicForm
+      client:load
+      fields={participantFields}
+      formTitle="Participant Registration Form"
+      onSubmit={async (data) => {
+        const response = await fetch('/api/forms/participant', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to submit form');
+        }
+      }}
+    />
+  </main>
+</Layout>

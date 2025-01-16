@@ -1,0 +1,166 @@
+---
+const navigation = [
+  { name: 'Home', href: '/' },
+  { name: 'History', href: '/history' },
+  { name: 'Committee', href: '/committee' },
+  { name: 'Parade Day FAQ', href: '/faq' },
+  { name: 'Forms & Downloads', href: '/forms' },
+  { name: 'Contact', href: '/contact' },
+  { name: 'Sponsors', href: '/sponsors' },
+  { name: 'Pin Locations', href: '/pins' },
+];
+---
+
+<nav class="bg-primary">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <a href="/" class="text-white font-bold text-xl">St. John Parade</a>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a
+          href="/forms/volunteer"
+          class="bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md text-sm font-medium"
+        >
+          Volunteer
+        </a>
+        <a
+          href="#"
+          class="bg-white hover:bg-gray-100 text-primary px-4 py-2 rounded-md text-sm font-medium"
+        >
+          Donate
+        </a>
+
+        <!-- Hamburger Menu -->
+        <div class="relative" id="hamburger-menu">
+          <button
+            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:outline-none"
+            id="hamburger-button"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div
+            class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden"
+            id="dropdown-menu"
+          >
+            {
+              navigation.map((item) => (
+                <a
+                  href={item.href}
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  {item.name}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div class="md:hidden">
+        <button
+          type="button"
+          class="text-gray-300 hover:text-white focus:outline-none"
+          id="mobile-menu-button"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="hidden md:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <div class="flex space-x-2 mb-4">
+          <a
+            href="/forms/volunteer"
+            class="bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md text-sm font-medium w-1/2 text-center"
+          >
+            Volunteer
+          </a>
+          <a
+            href="#"
+            class="bg-white hover:bg-gray-100 text-primary px-4 py-2 rounded-md text-sm font-medium w-1/2 text-center"
+          >
+            Donate
+          </a>
+        </div>
+        {
+          navigation.map((item) => (
+            <a
+              href={item.href}
+              class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >
+              {item.name}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // Desktop hamburger menu toggle
+  const hamburgerButton = document.getElementById('hamburger-button');
+  const dropdownMenu = document.getElementById('dropdown-menu');
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+
+  if (hamburgerButton && dropdownMenu && hamburgerMenu) {
+    let isOpen = false;
+
+    hamburgerButton.addEventListener('click', () => {
+      isOpen = !isOpen;
+      dropdownMenu.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!hamburgerMenu.contains(event.target) && isOpen) {
+        isOpen = false;
+        dropdownMenu.classList.add('hidden');
+      }
+    });
+  }
+</script>

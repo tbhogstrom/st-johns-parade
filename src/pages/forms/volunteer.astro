@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import { DynamicForm } from '../../components/forms/DynamicForm';
+
+const volunteerFields = [
+  {
+    name: 'fullName',
+    label: 'Full Name',
+    type: 'text',
+    required: true,
+    placeholder: 'Enter your full name'
+  },
+  {
+    name: 'email',
+    label: 'Email Address',
+    type: 'email',
+    required: true,
+    placeholder: 'your.email@example.com'
+  },
+  {
+    name: 'phone',
+    label: 'Phone Number',
+    type: 'tel',
+    required: true,
+    placeholder: '(555) 555-5555'
+  },
+  {
+    name: 'availability',
+    label: 'Availability',
+    type: 'textarea',
+    required: true,
+    placeholder: 'Please specify your available dates and times'
+  },
+  {
+    name: 'experience',
+    label: 'Previous Experience',
+    type: 'textarea',
+    required: false,
+    placeholder: 'Tell us about any relevant experience'
+  }
+];
+---
+
+<Layout title="Volunteer Registration">
+  <Navigation />
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl font-bold text-primary mb-8">Volunteer Registration</h1>
+    <DynamicForm
+      client:load
+      fields={volunteerFields}
+      formTitle="Volunteer Sign-up Form"
+      onSubmit={async (data) => {
+        const response = await fetch('/api/forms/volunteer', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to submit form');
+        }
+      }}
+    />
+  </main>
+</Layout>
