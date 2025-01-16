@@ -5,6 +5,10 @@ import vercel from '@astrojs/vercel/serverless';
 
 export default defineConfig({
   integrations: [react(), tailwind()],
-  output: 'hybrid',
-  adapter: vercelServerless()
+  output: 'server',  // Change from 'hybrid' to 'server'
+  adapter: vercel({
+    analytics: true,
+    webAnalytics: true,
+    speedInsights: true,
+  })
 });
