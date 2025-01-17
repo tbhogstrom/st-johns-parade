@@ -3,26 +3,18 @@ import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 
 const committeeMembers = [
-  {
-    name: 'John Smith',
-    role: 'Committee Chair',
-    description: 'Leading the parade committee since 2020'
-  },
-  {
-    name: 'Sarah Johnson',
-    role: 'Vice Chair',
-    description: 'Coordinating volunteer efforts and community outreach'
-  },
-  {
-    name: 'Michael Brown',
-    role: 'Treasurer',
-    description: 'Managing parade finances and sponsorships'
-  },
-  {
-    name: 'Lisa Davis',
-    role: 'Secretary',
-    description: 'Handling administrative duties and communications'
-  }
+  "Debbie Reichelt - Chair",
+  "Noreen Shoff - Treasurer",
+  "Tony Darco - Secretary",
+  "Gary Boehm",
+  "Brenna Park-Egan",
+  "Janet Vanek",
+  "Frank Vanek",
+  "Betty Drenkhahn",
+  "Allie Terpner",
+  "Maggie Poyant",
+  "Sherry Nutting",
+  "Randy Nutting"
 ];
 ---
 
@@ -30,14 +22,53 @@ const committeeMembers = [
   <Navigation />
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <h1 class="text-4xl font-bold text-primary mb-8">Parade Committee</h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {committeeMembers.map(member => (
-        <div class="bg-white rounded-lg shadow-md p-6">
-          <h2 class="text-xl font-semibold text-secondary mb-2">{member.name}</h2>
-          <h3 class="text-lg text-primary mb-2">{member.role}</h3>
-          <p class="text-gray-600">{member.description}</p>
+    
+    <!-- Volunteer Information Section -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+      <p class="text-gray-700 leading-relaxed">
+        The parade committee is always in need of volunteers. If you can help with organizing the event or want to help on parade day, see the 
+        <a href="/forms/volunteer" class="text-primary hover:text-primary/80 font-semibold">Volunteer</a> link at the top of the page. 
+        Please contact the parade committee volunteer coordinator at 
+        <a href="mailto:volunteer@stjohnsparade.org" class="text-primary hover:text-primary/80 font-semibold">volunteer@stjohnsparade.org</a> 
+        if you have questions.
+      </p>
+    </div>
+
+    <!-- Committee Members Section -->
+    <h2 class="text-2xl font-bold text-secondary mb-4">Committee Members</h2>
+    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {committeeMembers.map(member => (
+          <div class="p-2 text-gray-700">{member}</div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Contact Information Section -->
+    <h2 class="text-2xl font-bold text-secondary mb-4">Contact Information</h2>
+    <div class="bg-white rounded-lg shadow-md p-6">
+      <div class="mb-4">
+        <p class="text-gray-700 leading-relaxed">
+          The Chair of the St. Johns Parade Committee is Debbie Reichelt. If you have questions that have not been answered or have special needs, please contact Debbie.
+        </p>
+      </div>
+      
+      <div class="border-t pt-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <h3 class="font-semibold text-primary">Debbie Reichelt</h3>
+            <p class="text-gray-600">Chair</p>
+          </div>
+          <div>
+            <p class="text-gray-700">
+              <a href="mailto:Info@stjohnsparade.org" class="text-primary hover:text-primary/80">Info@stjohnsparade.org</a>
+            </p>
+            <p class="text-gray-700">
+              <a href="tel:503-735-1189" class="text-primary hover:text-primary/80">503-735-1189</a> (Call or Text)
+            </p>
+          </div>
         </div>
-      ))}
+      </div>
     </div>
   </main>
 </Layout>
