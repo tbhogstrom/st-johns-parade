@@ -7,8 +7,8 @@ export default defineConfig({
   integrations: [react(), tailwind()],
   output: 'server',
   adapter: vercel({
-    includeFiles: [],
-    excludeFiles: [],
-    maxDuration: 8
+    webAnalytics: {
+      enabled: true
+    }
   })
 });
