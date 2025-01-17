@@ -10,7 +10,8 @@ const CountdownBanner = () => {
 
   useEffect(() => {
     // Set parade date to July 6th, 2024 (first Saturday in July)
-    const paradeDate = new Date('2024-07-06T10:00:00');
+    // Set parade date - ensure timezone is handled properly
+    const paradeDate = new Date('2025-05-10T12:00:00-04:00'); // Eastern Time
 
     const timer = setInterval(() => {
       const now = new Date();
@@ -18,6 +19,12 @@ const CountdownBanner = () => {
 
       if (difference < 0) {
         clearInterval(timer);
+        setTimeLeft({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0
+        });
         return;
       }
 
@@ -46,7 +53,7 @@ const CountdownBanner = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-4">
           <h2 className="text-2xl font-bold">Countdown to Parade Day</h2>
-          <p className="text-white/80">Join us Saturday, July 6th, 2024 at 10:00 AM</p>
+          <p className="text-white/80">Join us Saturday, May 10th, 2025 at 12:00 PM</p>
         </div>
         <div className="flex justify-center items-center space-x-4">
           <TimeUnit value={timeLeft.days} label="Days" />
