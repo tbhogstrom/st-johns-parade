@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
+import CountdownBanner from '../components/CountdownBanner';
 ---
 
-<Layout title="St. Johns Parade 2025">
+<Layout title="Welcome">
   <Navigation />
+  <CountdownBanner client:load />
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Hero Section -->
     <div class="text-center mb-12">
