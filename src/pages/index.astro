@@ -3,18 +3,92 @@ import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 ---
 
-<Layout title="Welcome">
+<Layout title="St. Johns Parade 2025">
   <Navigation />
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <h1 class="text-4xl font-bold text-primary mb-8">Welcome to St. John Parade</h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Hero Section -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-primary mb-4">Welcome to St. Johns Parade</h1>
+      <div class="max-w-3xl mx-auto">
+        <p class="text-xl font-semibold mb-4">Hello Friends and Neighbors,</p>
+        <p class="text-2xl font-bold text-secondary mb-8">
+          The St. Johns Parade will take place at 12 noon on Saturday, May 10th, 2025!
+        </p>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+      <h2 class="text-2xl font-semibold text-secondary mb-4">About Our Parade</h2>
+      <p class="text-gray-600 mb-4">
+        The St. Johns Parade is the oldest and only all-donation and volunteer parade! We do not charge 
+        entry fees for groups who participate in our parade. Our parade attracts people from all over 
+        the Northwest and helps generate revenue for our local businesses.
+      </p>
+    </div>
+
+    <!-- Challenges Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-2xl font-semibold text-secondary mb-4">Latest Updates</h2>
-        <p class="text-gray-600">Stay tuned for the latest news and updates about this year's parade!</p>
+        <h2 class="text-2xl font-semibold text-secondary mb-4">Volunteer Needs</h2>
+        <p class="text-gray-600">
+          We need at least 100 volunteers to sign up for "barricade support" to ensure our staging 
+          area and parade route remain free and clear.
+        </p>
       </div>
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-2xl font-semibold text-secondary mb-4">Get Involved</h2>
-        <p class="text-gray-600">Learn how you can participate in or contribute to the parade.</p>
+        <h2 class="text-2xl font-semibold text-secondary mb-4">Committee Members</h2>
+        <p class="text-gray-600">
+          The Parade Committee is looking for new members! Our committee is currently much smaller 
+          than it should be to support an incredible event like the St. Johns Parade.
+        </p>
+      </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="bg-gray-50 rounded-lg shadow-md p-8">
+      <h2 class="text-2xl font-semibold text-secondary mb-6">How You Can Help</h2>
+      <div class="space-y-4">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 h-6 w-6 text-primary">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+          <p class="ml-3 text-gray-600">Sign up to volunteer for "Barricade Support." Without "Barricade Support," there is no Parade.</p>
+        </div>
+        <div class="flex items-start">
+          <div class="flex-shrink-0 h-6 w-6 text-primary">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+          <p class="ml-3 text-gray-600">Click on the "Donate" button and contribute what you can to help make the parade happen.</p>
+        </div>
+        <div class="flex items-start">
+          <div class="flex-shrink-0 h-6 w-6 text-primary">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+          <p class="ml-3 text-gray-600">Enter to be in the St. Johns Parade!</p>
+        </div>
+        <div class="flex items-start">
+          <div class="flex-shrink-0 h-6 w-6 text-primary">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+          <p class="ml-3 text-gray-600">Consider joining the Committee! Contact our Chair, Debbie Reichelt.</p>
+        </div>
+        <div class="flex items-start">
+          <div class="flex-shrink-0 h-6 w-6 text-primary">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+          <p class="ml-3 text-gray-600">Share this information with everyone you know!</p>
+        </div>
       </div>
     </div>
   </main>
