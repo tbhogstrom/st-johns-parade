@@ -4,6 +4,17 @@ import Navigation from '../components/Navigation.astro';
 import CountdownBanner from '../components/CountdownBanner';
 ---
 
+
+const metadata = {
+  title: "St. Johns Parade 2025 - Portland's Historic Community Parade",
+  description: "Join us for the St. Johns Parade on May 10th, 2025 at 12:00 PM in the historic St. Johns neighborhood of Portland, Oregon. A cherished community tradition featuring local businesses, schools, and organizations.",
+  keywords: "St. Johns Parade, Portland parades, St. Johns neighborhood, community events Portland, Portland OR events, St Johns Portland",
+  ogImage: "/images/parade-banner.jpg", // You'll need to add this image
+  canonical: "https://stjohnsparade.org",
+  eventDate: "2025-05-10T12:00:00-04:00",
+  eventLocation: "St. Johns Neighborhood, Portland, OR"
+};
+
 <Layout title="Welcome">
   <Navigation />
   <CountdownBanner client:load />
