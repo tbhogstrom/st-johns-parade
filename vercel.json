@@ -1,11 +1,12 @@
 {
- "version": 2,
- "buildCommand": "npm run build",
- "devCommand": "npm run dev",
- "framework": "astro",
- "functions": {
-   "api/*.js": {
-     "runtime": "nodejs18.x"
-   }
- }
+  "version": 2,
+  "framework": "astro",
+  "buildCommand": "astro build",
+  "devCommand": "astro dev",
+  "installCommand": "npm install",
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  }
 }
